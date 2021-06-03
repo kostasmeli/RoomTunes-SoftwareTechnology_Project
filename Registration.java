@@ -1,69 +1,32 @@
+import java.util.Scanner;
+
 public class Registration {
 
-    private String name;
-    private String username;
-    private String password;
-    private String EMail;
-    private Boolean VIPStatus;
+    static Register register = new Register();
 
-    public Registration()
+    public static void main(String[] args)
     {
-    }
-    public Registration(String nm,String user,String pass,String eml,Boolean Vip)
-    {
-        name = nm;
-        username = user;
-        password = pass;
-        EMail = eml;
-        VIPStatus = Vip;
-    }
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print(" Name => ");
+            String Name = scanner.nextLine();
+            register.setName(Name);
 
-    public void setName(String nm)
-    {
-        name = nm;
-    }
+            System.out.print(" UserName => ");
+            String UserName = scanner.nextLine();
+            register.setUserName(UserName);
 
-    public String getName()
-    {
-        return name;
-    }
+            System.out.print(" Password => ");
+            String Password = scanner.nextLine();
+            register.setPassword(Password);
 
-    public void setUsername(String user)
-    {
-        username = user;
+            System.out.print(" E-Mail => ");
+            String EMail = scanner.nextLine();
+            register.setEMail(EMail);
+
+            System.out.print(" VIP True or False => ");
+            Boolean VIPStatus = scanner.nextBoolean();
+            register.setVIPStatus(VIPStatus);
+        }
     }
 
-    public String getUsername()
-    {
-        return username;
-    }
-
-    public void setPassword(String pass)
-    {
-        password = pass;
-    }
-
-    public String getPassword()
-    {
-        return password;
-    }
-
-    public void setEMail(String eml)
-    {
-        EMail = eml;
-    }
-
-    public String getEMail()
-    {
-        return EMail;
-    }
-
-    public void setVIPStatus(Boolean Vip) {
-        VIPStatus = Vip;
-    }
-
-    public Boolean getVIPStatus()
-    {
-        return VIPStatus;
-    }
 }
