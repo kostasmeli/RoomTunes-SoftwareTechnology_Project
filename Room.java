@@ -46,6 +46,7 @@ public class Room {
                 System.out.println("Dialekste ena apo ta domatia mas");
                 num = sc1.nextInt();
             }
+            System.out.println("Dialeksate to Dwmatio " + num);
         }
     }
 }
