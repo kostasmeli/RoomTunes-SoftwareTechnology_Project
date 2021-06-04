@@ -3,12 +3,22 @@
 import java.util.Scanner;
 
 public class Room {
+   // int numberofrooms;
+
+   // String FinalAdress;
+   // int FinalCostPerHour;
+   // int NumberOfPeople;
+   // int FinalRoomID;
+   // void increaseRoom(){
+        //numberofrooms++;
+   // }
+
     public static void main (String args[]) {
         int[] numRoom;
         int i = 0;
 
         // allocating memory for 5 integers.
-        numRoom = new int[4];
+        numRoom = new int[5];
 
         // initialize the first elements of the array
         numRoom[0] = 1;

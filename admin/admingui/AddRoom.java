@@ -1,5 +1,6 @@
 package admin.admingui;
 
+
 import javax.swing.*;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -30,10 +31,11 @@ public class AddRoom extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 int NumberOfPeople = 0;
                 int RoomId = 0;
+                int CostPerHour = 0;
                 try {
                     RoomId = Integer.valueOf(roomidtext.getText());
                     NumberOfPeople = Integer.valueOf((peopletext.getText()));
-                    int CostPerHour = Integer.valueOf((costtext.getText()));
+                    CostPerHour = Integer.valueOf((costtext.getText()));
                     String Address = String.valueOf(addresstext.getText());
                 } catch (Exception a) {
                     JOptionPane.showMessageDialog(null,
@@ -41,19 +43,24 @@ public class AddRoom extends JFrame{
                 }
                 if (RoomId <= 0) {
                     //while(RoomId==ListRoomId){
-                    Random rand= new Random();
+                    Random rand = new Random();
                     int rand_int = rand.nextInt(1000);
                     RoomId = rand_int;
                     JOptionPane.showMessageDialog(null,
-                            "Random RoomId has been generated : "+RoomId,
+                            "Random RoomId has been generated : " + RoomId,
                             "Generated RoomId",
                             JOptionPane.PLAIN_MESSAGE);
                     //an autos o arithmos den uparxei hdh kataxwrhse allios proxwra
                     //}
                 }
-                    if (NumberOfPeople <= 0) {
-                        JOptionPane.showMessageDialog(null, "Number Of People must be positive number");
-                    }
+                if (NumberOfPeople > 0 & CostPerHour > 0){
+                   // Room r = new Room();
+                   // r.increaseRoom();
+                    // call the Room class and exec the query
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "NumberOfPeople/CostPerHour must be positive number");
+                }
             }
         });
     }
