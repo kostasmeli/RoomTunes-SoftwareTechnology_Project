@@ -70,6 +70,8 @@ public class Registration {
                     else if (Method.equals("b") || Method.equals("B")) {
                         System.out.println("You chose Card");
                         break;
+                    }else {
+                        System.out.println("Try again. Choose A or a for Cash or B or b for Card");
                     }
                 }
                 if(payment.GetPayMethod().equals("b") || payment.GetPayMethod().equals("B")) {
