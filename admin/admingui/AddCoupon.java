@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 public class AddCoupon extends JFrame {
     private JPanel CouponRootPanel;
@@ -25,7 +29,7 @@ public class AddCoupon extends JFrame {
         this.setPreferredSize(new Dimension(500,500));
         this.setLocationRelativeTo(null);
         this.pack();
-
+        //We could call the User Class and Retrieve the Users and parse them to the List
         String[] Users = new String[10];
         Users[0]="Kwnstantinos Melissourgos";
         Users[1]="Fotis Tsolakidis";
@@ -43,6 +47,37 @@ public class AddCoupon extends JFrame {
         ActivateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try{
+                  String  DateStart=String.valueOf(DateStartText.getText());
+                  String  DateEnd=String.valueOf(DateEndText.getText());
+                  int Discount=Integer.valueOf(DiscountText.getText());
+                  String CouponID=String.valueOf(CouponIDText.getText());
+
+                    SimpleDateFormat sdfrmt = new SimpleDateFormat("dd/MM/yyyy");
+                    sdfrmt.setLenient(false);
+                    try{
+                        Date FdateStart = sdfrmt.parse(DateStart);
+                        Date FdateEnd = sdfrmt.parse(DateEnd);
+                        if (FdateStart.equals(FdateEnd)||FdateStart.after(FdateEnd)){
+                            JOptionPane.showMessageDialog(null,"DateStart must be before DateEnd");
+                        }
+                        else if (Discount >=100||Discount<=0){
+                            JOptionPane.showMessageDialog(null,"Discount must be in range of 1-100");
+                        }
+                        else{
+                            //Parse the data to Coupon Class
+                            //Activate Coupon to Users who are selected
+                            List SelectedUsers=UsersList.getSelectedValuesList();
+                            JOptionPane.showMessageDialog(null,"Coupon Activated For " +SelectedUsers);
+                        }
+                    }
+                    catch (ParseException b){
+                        JOptionPane.showMessageDialog(null,"Error Date is Invalid");
+                    }
+                }
+                catch(Exception a){
+                    JOptionPane.showMessageDialog(null, "Wrong Input, Try Again");
+                }
 
             }
         });

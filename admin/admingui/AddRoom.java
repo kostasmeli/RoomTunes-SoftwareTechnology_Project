@@ -29,19 +29,21 @@ public class AddRoom extends JFrame{
         submitbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int NumberOfPeople = 0;
-                int RoomId = 0;
-                int CostPerHour = 0;
-                try {
-                    RoomId = Integer.valueOf(roomidtext.getText());
-                    NumberOfPeople = Integer.valueOf((peopletext.getText()));
-                    CostPerHour = Integer.valueOf((costtext.getText()));
-                    String Address = String.valueOf(addresstext.getText());
-                } catch (Exception a) {
-                    JOptionPane.showMessageDialog(null,
-                            "Error,Please check your inputs");
-                }
-                if (RoomId <= 0) {
+                    try {
+                        int tempRoomId = Integer.valueOf(roomidtext.getText());
+                        int tempNumberOfPeople = Integer.valueOf((peopletext.getText()));
+                        int tempCostPerHour = Integer.valueOf((costtext.getText()));
+                        String tempAddress = String.valueOf(addresstext.getText());
+                    } catch (Exception a) {
+                        JOptionPane.showMessageDialog(null,"Error,Please check your inputs");
+                        System.exit(0);
+                    }
+
+               int RoomId = Integer.valueOf(roomidtext.getText());
+               int NumberOfPeople = Integer.valueOf((peopletext.getText()));
+               int CostPerHour = Integer.valueOf((costtext.getText()));
+               String Address = String.valueOf(addresstext.getText());
+                if(RoomId <= 0) {
                     //while(RoomId==ListRoomId){
                     Random rand = new Random();
                     int rand_int = rand.nextInt(1000);
@@ -57,9 +59,12 @@ public class AddRoom extends JFrame{
                    // Room r = new Room();
                    // r.increaseRoom();
                     // call the Room class and exec the query
+                    JOptionPane.showMessageDialog(null,"Success");
+                    System.exit(0);
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "NumberOfPeople/CostPerHour must be positive number");
+                    System.exit(0);
                 }
             }
         });
