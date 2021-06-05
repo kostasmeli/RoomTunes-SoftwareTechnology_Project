@@ -25,7 +25,7 @@ public class upgradeVIP extends Register {
     Scanner input=new Scanner(System.in);
     String mypassword=input.next();
     
-}while (mypassword.equals(register.setPassword()) && (myname.equals(register.setName()) && (myusername.equals(register.setUserName))
+}while (mypassword.equals(register.getPassword()) && (myname.equals(register.getName()) && (myusername.equals(register.getUserName))
 VIPStatus = true;
 register.setVIPStatus(VIPStatus);
 System.out.println("Upgrate to VIP successful, please continue with the payment.");
