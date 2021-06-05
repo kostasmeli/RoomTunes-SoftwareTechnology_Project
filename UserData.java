@@ -1,8 +1,6 @@
-//package testing;
-
 import java.util.Scanner;
-public class UserData {
-    public void ChangeData (String args[]) {
+public class UserData extends Launcher{
+    public UserData () {
         Register register = new Register();
         //edw na pairnei apo tin database
 
@@ -17,32 +15,32 @@ public class UserData {
         System.out.println("Parakalo grapste poio pedio thelete na allaksete: onoma, email, password ");
         String pedio = sc.nextLine();
 
-        while(pedio=="onoma") {
+        while(pedio.equals("onoma")) {
             System.out.println("Lipoumaste, auto to pedio den mporei na allaksei");
             System.out.println("Parakalo grapste poio pedio thelete na allaksete: onoma, email, password ");
-            String pedio = sc.nextLine();
+            pedio = sc.nextLine();
 
-            if(pedio=="email") {
+            if(pedio.equals("email")) {
                 System.out.println("Dwste neo email");
                 String EMail = sc.nextLine();
                 register.setEMail(EMail);
             }
 
-            if(pedio=="password") {
-            System.out.println("Dwste neo password");
-            String Password = sc.nextLine();
-            register.setPassword(Password);
+            if(pedio.equals("password")) {
+                System.out.println("Dwste neo password");
+                String Password = sc.nextLine();
+                register.setPassword(Password);
             }
 
         }
 
-        if(pedio=="email") {
+        if(pedio.equals("email")) {
             System.out.println("Dwste neo email");
             String EMail = sc.nextLine();
             register.setEMail(EMail);
         }
 
-        if(pedio=="password") {
+        if(pedio.equals("password")) {
             System.out.println("Dwste neo password");
             String Password = sc.nextLine();
             register.setPassword(Password);
