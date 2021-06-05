@@ -43,4 +43,7 @@ class Register{
     public void setPackage(String Package) {
         this.Package = Package;
     }
+    public String getPackage() {
+        return Package;
+    }
 }
