@@ -2,7 +2,7 @@ package admin.admingui;
 
 
 import javax.swing.*;
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -30,42 +30,34 @@ public class AddRoom extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                     try {
-                        int tempRoomId = Integer.valueOf(roomidtext.getText());
-                        int tempNumberOfPeople = Integer.valueOf((peopletext.getText()));
-                        int tempCostPerHour = Integer.valueOf((costtext.getText()));
-                        String tempAddress = String.valueOf(addresstext.getText());
+                        int RoomId = Integer.valueOf(roomidtext.getText());
+                        int NumberOfPeople = Integer.valueOf((peopletext.getText()));
+                        int CostPerHour = Integer.valueOf((costtext.getText()));
+                        String Address = String.valueOf(addresstext.getText());
+                        if(RoomId <= 0) {
+                            //while(RoomId==ListRoomId){
+                            Random rand = new Random();
+                            int rand_int = rand.nextInt(1000);
+                            RoomId = rand_int;
+                            JOptionPane.showMessageDialog(null, "Random RoomId has been generated : " + RoomId,
+                                    "Generated RoomId", JOptionPane.PLAIN_MESSAGE);
+                            //an autos o arithmos den uparxei hdh kataxwrhse allios proxwra
+                            //}
+                        }
+                        if (NumberOfPeople > 0 & CostPerHour > 0){
+                            // Room r = new Room();
+                            // r.increaseRoom();
+                            // call the Room class and exec the query
+                            JOptionPane.showMessageDialog(null,"Success");
+                            System.exit(0);
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "NumberOfPeople/CostPerHour must be positive number");
+                        }
+
                     } catch (Exception a) {
                         JOptionPane.showMessageDialog(null,"Error,Please check your inputs");
-                        System.exit(0);
                     }
-
-               int RoomId = Integer.valueOf(roomidtext.getText());
-               int NumberOfPeople = Integer.valueOf((peopletext.getText()));
-               int CostPerHour = Integer.valueOf((costtext.getText()));
-               String Address = String.valueOf(addresstext.getText());
-                if(RoomId <= 0) {
-                    //while(RoomId==ListRoomId){
-                    Random rand = new Random();
-                    int rand_int = rand.nextInt(1000);
-                    RoomId = rand_int;
-                    JOptionPane.showMessageDialog(null,
-                            "Random RoomId has been generated : " + RoomId,
-                            "Generated RoomId",
-                            JOptionPane.PLAIN_MESSAGE);
-                    //an autos o arithmos den uparxei hdh kataxwrhse allios proxwra
-                    //}
-                }
-                if (NumberOfPeople > 0 & CostPerHour > 0){
-                   // Room r = new Room();
-                   // r.increaseRoom();
-                    // call the Room class and exec the query
-                    JOptionPane.showMessageDialog(null,"Success");
-                    System.exit(0);
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "NumberOfPeople/CostPerHour must be positive number");
-                    System.exit(0);
-                }
             }
         });
     }
