@@ -62,7 +62,7 @@ public class AddCoupon extends JFrame {
                             JOptionPane.showMessageDialog(null,"DateStart must be before DateEnd");
                         }
                         else if (Discount >=100||Discount<=0){
-                            JOptionPane.showMessageDialog(null,"Discount must be in range of 1-100");
+                            JOptionPane.showMessageDialog(null,"Discount must be in range of 1-99");
                         }
                         else{
                             //Parse the data to Coupon Class
