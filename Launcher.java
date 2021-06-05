@@ -2,21 +2,27 @@ import java.util.Scanner;
 
 public class Launcher {
 
-    private static Object Registration;
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNext() && !scanner.equals("exit")) {
-            if (scanner.equals("R") || scanner.equals("r")) {
-                new Registration();
-            }
-            if (Registration && scanner.equals("U") || scanner.equals("u)")) {
-                new upgradeVIP();
-            }//if (scanner.equals("M") || scanner.equals("m")){
-            //new Reservation();
-                //}
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Press R or r to Register");
+            System.out.println("Press VIP or vip to Upgrade to VIP");
+            System.out.println("Press DATA or data to see or modify user data");
+            String scan = scanner.nextLine();
+            while (!scan.equals("exit") && !scan.equals("EXIT")) {
+                if (scan.equals("R") || scan.equals("r")) {
+                    new Registration();
+                }
+                if (scan.equals("VIP") || scan.equals("vip")) {
+                    new upgradeVIP();
+                }
+                if (scan.equals("DATA") || scan.equals("data")) {
+                    new UserData();
+                }
+                scan = scanner.nextLine();
             }
         }
     }
 }
+
