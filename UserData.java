@@ -2,7 +2,9 @@ package testing;
 
 import java.util.Scanner;
 public class UserData {
-    public static void main (String args[]) {
+    public void ChangeData (String args[]) {
+        DataBase DBObject = new DataBase()
+        //edw na pairnei apo tin database
         Scanner sc = new Scanner(System.in);
         System.out.println("onoma kai epitheto ");
         String fullname = sc.nextLine();
