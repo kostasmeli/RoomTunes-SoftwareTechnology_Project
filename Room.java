@@ -1,24 +1,15 @@
-//package testing;
-
 import java.util.Scanner;
 
-public class Room {
-   // int numberofrooms;
+public class Room{
 
-   // String FinalAdress;
-   // int FinalCostPerHour;
-   // int NumberOfPeople;
-   // int FinalRoomID;
-   // void increaseRoom(){
-        //numberofrooms++;
-   // }
+    static Payment payment = new Payment();
 
-    public static void main (String args[]) {
+    public int RoomNum() {
         int[] numRoom;
         int i = 0;
 
         // allocating memory for 5 integers.
-        numRoom = new int[5];
+        numRoom = new int[4];
 
         // initialize the first elements of the array
         numRoom[0] = 1;
@@ -36,27 +27,30 @@ public class Room {
 
         System.out.println("Dialekste ena apo ta domatia mas");
         int num = sc1.nextInt();
-
-        if (num==1) {
-            System.out.println("Epileksate to Dwmatio 1");
-        }
-         else if(num==2){
-            System.out.println("Lipoumste, to domatio 2 den einai diathesimo");
-
-         }
-         else if (num==3){
-            System.out.println("Epileksate to Dwmatio 3");
-         }
-         else if (num==4){
-            System.out.println("Lipoumste, to domatio 4 den einai diathesimo");
-         }
-        else {
-            while (num != 1 && num != 2 && num != 3 && num != 4) {
+        while(num!=1 || num!=3) {
+            if (num == 1) {
+                System.out.println("Epileksate to Dwmatio 1");
+                payment.SetPayment(50.0);
+                return num;
+            } else if (num == 2) {
+                System.out.println("Lipoumste, to domatio 2 den einai diathesimo");
+                System.out.println("Dwste allo dwmatio");
+                num = sc1.nextInt();
+            } else if (num == 3) {
+                System.out.println("Epileksate to Dwmatio 3");
+                payment.SetPayment(80.0);
+                return num;
+            } else if (num == 4) {
+                System.out.println("Lipoumste, to domatio 4 den einai diathesimo");
+                System.out.println("Dwste allo dwmatio");
+                num = sc1.nextInt();
+            } else if (num != 1 && num != 2 && num != 3 && num != 4) {
                 System.out.println("O arithmos pou dosate den einai egkiros");
                 System.out.println("Dialekste ena apo ta domatia mas");
                 num = sc1.nextInt();
             }
-            System.out.println("Dialeksate to Dwmatio " + num);
         }
+        System.out.println("Dialeksate to Dwmatio " + num);
+        return num;
     }
 }
