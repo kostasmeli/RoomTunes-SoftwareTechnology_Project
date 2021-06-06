@@ -108,7 +108,7 @@ public class AddCoupon extends JFrame {
                     }
                 }
                 catch(Exception a){
-                    JOptionPane.showMessageDialog(null, "Wrong Input, Try Again"+a);
+                    JOptionPane.showMessageDialog(null, "Error, Try Again "+a);
                 }
 
             }
