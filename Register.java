@@ -1,25 +1,18 @@
-class Register {
+class Register{
     private String Name;
     private String UserName;
     private String Password;
     private String EMail;
     private Boolean VIPStatus;
-
-    public Register(String Name, String UserName, String Password, String EMail, Boolean VIPStatus) {
-        this.Name = Name;
-        this.UserName = UserName;
-        this.Password = Password;
-        this.EMail = EMail;
-        this.VIPStatus = VIPStatus;
-    }
+    private String Package;
 
     public Register() {
 
     }
 
-    public String getName() {
+   public String getName() {
         return Name;
-    }
+   }
     public void setName(String Name) {
         this.Name = Name;
     }
@@ -46,5 +39,11 @@ class Register {
     }
     public void setVIPStatus(Boolean VIPStatus) {
         this.VIPStatus = VIPStatus;
+    }
+    public void setPackage(String Package) {
+        this.Package = Package;
+    }
+    public String getPackage() {
+        return Package;
     }
 }
