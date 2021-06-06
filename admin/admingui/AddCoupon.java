@@ -7,46 +7,52 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.lang.String;
+import java.util.Vector;
 
 public class AddCoupon extends JFrame {
     private JPanel CouponRootPanel;
-    private JTextField CouponIDText;
+    private JTextField CouponCodeText;
     private JTextField DiscountText;
     private JTextField DateEndText;
     private JTextField DateStartText;
     private JList<String> UsersList;
     private JButton ActivateButton;
-    private JLabel CouponIDLabel;
+    private JLabel CouponCodeLabel;
     private JLabel DateStartLabel;
     private JLabel DateEndLabel;
     private JLabel DiscountLabel;
 
-    public AddCoupon(String title) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+    public AddCoupon(String title) throws SQLException {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(CouponRootPanel);
         this.setPreferredSize(new Dimension(500,500));
         this.setLocationRelativeTo(null);
         this.pack();
+
+        List<String> Users = new ArrayList<String>();
+        Vector<String> UsersAppend = new Vector<String>();
+
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/roomtunes", "root", "");
+        String UsersQuery = "Select FullName From Users;";
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery(UsersQuery);
+        //we fetch Strings and add them to String List,but GUI list only takes String Array or Vector List
+        //So... we convert the String List into Vector List
+        while(rs.next()){
+            String FullName = rs.getString("FullName");
+            Users.add(FullName);
+        }
+        st.close();
+        int n = Users.size();
+        for(int i = 0; i < n; i++){
+            UsersAppend.add(Users.get(i));
+        }
 
-        //We could call the User Class and Retrieve the Users and parse them to the List
-        String[] Users = new String[10];
-        Users[0]="Kwnstantinos Melissourgos";
-        Users[1]="Fotis Tsolakidis";
-        Users[2]="Stefanos Fokias";
-        Users[3]="Konstantinos Ninis";
-        Users[4]="Leonidas Choudhurry";
-        Users[5]="Mixalis AlDente";
-        Users[6]="Tasos Xatzigiovanis";
-        Users[7]="Giannis Alfzos";
-        Users[8]="Young Light";
-        Users[9]="Madclip";
-
-        UsersList.setListData(Users);
+        UsersList.setListData(UsersAppend);
 
         ActivateButton.addActionListener(new ActionListener() {
             @Override
@@ -55,9 +61,9 @@ public class AddCoupon extends JFrame {
                   String  DateStart=String.valueOf(DateStartText.getText());
                   String  DateEnd=String.valueOf(DateEndText.getText());
                   int Discount=Integer.valueOf(DiscountText.getText());
-                  String CouponID=String.valueOf(CouponIDText.getText());
+                  String CouponCode=String.valueOf(CouponCodeText.getText());
 
-                    SimpleDateFormat sdfrmt = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat sdfrmt = new SimpleDateFormat("yyyy-MM-dd");
                     sdfrmt.setLenient(false);
                     try{
                         Date FdateStart = sdfrmt.parse(DateStart);
@@ -69,34 +75,47 @@ public class AddCoupon extends JFrame {
                             JOptionPane.showMessageDialog(null,"Discount must be in range of 1-99");
                         }
                         else{
-                            //Parse the data to Coupon Class
-                            //Activate Coupon to Users who are selected
                             //List users to String
                             List SelectedUsers=UsersList.getSelectedValuesList();
-                            String StringUsers=String.join(",", SelectedUsers);
-                         /*   PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `coupon` (couponid,datestart,datend,discount,users) VALUE (?,?,?,?,?)");
-                            pstmt.setString(1, CouponID );
-                            pstmt.setString(2, DateStart);
-                            pstmt.setString(3, DateEnd);
-                            pstmt.setInt(4, Discount);
-                            pstmt.setString(5,StringUsers );
-                            pstmt.executeUpdate(); */
+                            int size=SelectedUsers.size();
+                            List<Integer> Identifiers= new ArrayList<Integer>();
+                            PreparedStatement prepst = conn.prepareStatement("SELECT UserID From Users WHERE FullName = ?");
+                            for(int i=0; i<size; i++){
+                                String TempFullName = String.valueOf(SelectedUsers.get(i));
+                                prepst.setString(1,TempFullName);
+                                ResultSet rs = prepst.executeQuery();
+                                while(rs.next()) {
+                                    Identifiers.add(rs.getInt(i+1));
+                                }
+                            }
+                            //"INSERT INTO `ad`.`ad` (`imgURL`, `linkURL`, `client`, `idx`) VALUES (?, ?, ?, ?)";
+                            prepst.close();
+                            PreparedStatement prepst2 =conn.prepareStatement("INSERT INTO Coupon(DateStart,DateEnd,Discount,CouponUsers,CouponCode) VALUES(?,?,?,?,?)");
+                            int sizeID=Identifiers.size();
+                            for(int i=0; i<sizeID; i++){
+                                prepst2.setDate(1,java.sql.Date.valueOf(DateStart));
+                                prepst2.setDate(2,java.sql.Date.valueOf(DateEnd));
+                                prepst2.setInt(3,Discount);
+                                prepst2.setInt(4,Identifiers.get(i));
+                                prepst2.setString(5,CouponCode);
+                                prepst2.executeUpdate();
+                            }
                             JOptionPane.showMessageDialog(null,"Coupon Activated For " +SelectedUsers);
                         }
                     }
                     catch (ParseException b){
-                        JOptionPane.showMessageDialog(null,"Error Date is Invalid");
+                        JOptionPane.showMessageDialog(null,"Error Date is Invalid ");
                     }
                 }
                 catch(Exception a){
-                    JOptionPane.showMessageDialog(null, "Wrong Input, Try Again");
+                    JOptionPane.showMessageDialog(null, "Wrong Input, Try Again"+a);
                 }
 
             }
         });
     }
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws SQLException {
         JFrame frame = new AddCoupon("AddCouponWindow");
         frame.setVisible(true);
     }
