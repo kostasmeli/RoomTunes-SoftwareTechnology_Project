@@ -4,10 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.lang.String;
 
 public class AddCoupon extends JFrame {
     private JPanel CouponRootPanel;
@@ -22,13 +24,15 @@ public class AddCoupon extends JFrame {
     private JLabel DateEndLabel;
     private JLabel DiscountLabel;
 
-    public AddCoupon(String title){
+    public AddCoupon(String title) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(CouponRootPanel);
         this.setPreferredSize(new Dimension(500,500));
         this.setLocationRelativeTo(null);
         this.pack();
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/roomtunes", "root", "");
+
         //We could call the User Class and Retrieve the Users and parse them to the List
         String[] Users = new String[10];
         Users[0]="Kwnstantinos Melissourgos";
@@ -67,7 +71,16 @@ public class AddCoupon extends JFrame {
                         else{
                             //Parse the data to Coupon Class
                             //Activate Coupon to Users who are selected
+                            //List users to String
                             List SelectedUsers=UsersList.getSelectedValuesList();
+                            String StringUsers=String.join(",", SelectedUsers);
+                         /*   PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `coupon` (couponid,datestart,datend,discount,users) VALUE (?,?,?,?,?)");
+                            pstmt.setString(1, CouponID );
+                            pstmt.setString(2, DateStart);
+                            pstmt.setString(3, DateEnd);
+                            pstmt.setInt(4, Discount);
+                            pstmt.setString(5,StringUsers );
+                            pstmt.executeUpdate(); */
                             JOptionPane.showMessageDialog(null,"Coupon Activated For " +SelectedUsers);
                         }
                     }
@@ -83,7 +96,7 @@ public class AddCoupon extends JFrame {
         });
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         JFrame frame = new AddCoupon("AddCouponWindow");
         frame.setVisible(true);
     }
