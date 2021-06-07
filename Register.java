@@ -1,4 +1,4 @@
-class Register{
+public class Register extends Registration{
     private String Name;
     private String UserName;
     private String Password;
@@ -6,10 +6,9 @@ class Register{
     private Boolean VIPStatus;
     private String Package;
 
-    public Register() {
-
+    public String Register() {
+        return "Your Name is: " + Name + ", your UserName is: " + UserName + ", your Password is: " + Password + ", your EMail is: " + EMail + " and your VIP Status is" + VIPStatus;
     }
-
    public String getName() {
         return Name;
    }

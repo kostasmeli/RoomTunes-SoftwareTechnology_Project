@@ -2,11 +2,10 @@ import java.util.Scanner;
 
 public class Registration extends Launcher {
 
-    static Register register = new Register();
-    static Payment payment = new Payment();
-
-    public Registration() {
-        try (Scanner scanner = new Scanner(System.in)) {
+    public String Registration() {
+        Register register = new Register();
+        Payment payment = new Payment();
+        Scanner scanner = new Scanner(System.in);
             System.out.print("Name => ");
             String Name = scanner.nextLine();
             register.setName(Name);
@@ -71,7 +70,6 @@ public class Registration extends Launcher {
                 } else {
                     System.out.println("Choose 1, 2 or 3. If you want to leave without upgrading to VIP type exit");
                 }
-
                 while (scanner.hasNext()) {
                     if (Package.equals("exit") || Package.equals("EXIT")) {
                         break;
@@ -82,7 +80,9 @@ public class Registration extends Launcher {
                         System.out.println("You chose Cash");
                         System.out.println("Registration Successful");
                         System.out.println("We will accept your payment on your first visit!");
-                        break;
+                        System.out.println("Your Name is: " + register.getName() + ", your UserName is: " + register.getUserName() + ", your Password is: " + register.getPassword() + ", your EMail is: " + register.getEMail() + " and your VIP Status is " + register.getVIPStatus());
+                        String a = register.Register();
+                        return a;
                     } else if (Method.equals("b") || Method.equals("B")) {
                         System.out.println("You chose Card");
                         break;
@@ -92,7 +92,7 @@ public class Registration extends Launcher {
                 }
                 if (payment.GetPayMethod().equals("b") || payment.GetPayMethod().equals("B")) {
                     System.out.println("Please insert your Card Info");
-                    System.out.println("Please insert the Card Number");
+                    System.out.println("Please insert your Card Number");
                     String CardNumbers = scanner.nextLine();
                     System.out.println("Please insert your name as it appears on your card");
                     String CardName = scanner.nextLine();
@@ -102,8 +102,13 @@ public class Registration extends Launcher {
                     String CVV = scanner.nextLine();
                     payment.SetCardInfo(CardNumbers, CardName, CardDate, CVV);
                     System.out.println("Registration Successful");
+                    System.out.println("Your Name is: " + register.getName() + ", your UserName is: " + register.getUserName() + ", your Password is: " + register.getPassword() + ", your EMail is: " + register.getEMail() + " and your VIP Status is " + register.getVIPStatus());
+                    String a = register.Register();
+                    return a;
                 }
             }
+            String a = register.Register();
+            System.out.println("Your Name is: " + register.getName() + ", your UserName is: " + register.getUserName() + ", your Password is: " + register.getPassword() + ", your EMail is: " + register.getEMail() + " and your VIP Status is " + register.getVIPStatus());
+            return a;
         }
     }
-}
