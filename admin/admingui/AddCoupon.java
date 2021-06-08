@@ -24,6 +24,7 @@ public class AddCoupon extends JFrame {
     private JLabel DateStartLabel;
     private JLabel DateEndLabel;
     private JLabel DiscountLabel;
+    private JButton returnToStartPanelButton;
 
     public AddCoupon(String title) throws SQLException {
         super(title);
@@ -35,8 +36,10 @@ public class AddCoupon extends JFrame {
 
         List<String> Users = new ArrayList<String>();
         Vector<String> UsersAppend = new Vector<String>();
-
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/roomtunes", "root", "");
+        //local
+        //Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/roomtunes", "root", "");
+        //free-server
+        Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/roomtunes", "kwstas1998", "1q2w3e4r");
         String UsersQuery = "Select FullName From Users;";
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery(UsersQuery);
@@ -88,7 +91,6 @@ public class AddCoupon extends JFrame {
                                     Identifiers.add(rs.getInt(i+1));
                                 }
                             }
-                            //"INSERT INTO `ad`.`ad` (`imgURL`, `linkURL`, `client`, `idx`) VALUES (?, ?, ?, ?)";
                             prepst.close();
                             PreparedStatement prepst2 =conn.prepareStatement("INSERT INTO Coupon(DateStart,DateEnd,Discount,CouponUsers,CouponCode) VALUES(?,?,?,?,?)");
                             int sizeID=Identifiers.size();
@@ -111,6 +113,14 @@ public class AddCoupon extends JFrame {
                     JOptionPane.showMessageDialog(null, "Error, Try Again "+a);
                 }
 
+            }
+        });
+        returnToStartPanelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                JFrame frame = new StartPanel("StartPanel");
+                frame.setVisible(true);
             }
         });
     }
