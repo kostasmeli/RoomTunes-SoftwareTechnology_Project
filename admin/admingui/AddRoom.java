@@ -5,6 +5,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Random;
 
 public class AddRoom extends JFrame{
@@ -18,10 +22,15 @@ public class AddRoom extends JFrame{
     private JLabel addresslabel;
     private JTextField addresstext;
     private JButton submitbutton;
+    private JButton returnToStartPanelButton;
     private JTextField Addroomfield;
-    public AddRoom(String title){
+    public AddRoom(String title) throws SQLException {
         super(title);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //local
+        //Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/roomtunes", "root", "");
+        //free-server
+        Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/roomtunes", "kwstas1998", "1q2w3e4r");
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.setContentPane(RootPanel);
         this.setLocationRelativeTo(null);
         this.setPreferredSize(new Dimension(400,400));
@@ -45,11 +54,13 @@ public class AddRoom extends JFrame{
                             //}
                         }
                         if (NumberOfPeople > 0 & CostPerHour > 0){
-                            // Room r = new Room();
-                            // r.increaseRoom();
-                            // call the Room class and exec the query
+                            PreparedStatement prepst = conn.prepareStatement("INSERT INTO Room(Address,CostPerHour,RoomID,NumberOfPeople) VALUES(?,?,?,?)");
+                            prepst.setString(1,Address);
+                            prepst.setInt(2,CostPerHour);
+                            prepst.setInt(3,RoomId);
+                            prepst.setInt(4,NumberOfPeople);
+                            prepst.executeUpdate();
                             JOptionPane.showMessageDialog(null,"Success");
-                            System.exit(0);
                         }
                         else{
                             JOptionPane.showMessageDialog(null, "NumberOfPeople/CostPerHour must be positive number");
@@ -60,10 +71,18 @@ public class AddRoom extends JFrame{
                     }
             }
         });
+        returnToStartPanelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                JFrame frame = new StartPanel("StartPanel");
+                frame.setVisible(true);
+            }
+        });
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws SQLException {
         JFrame frame = new AddRoom("AddRoomWindow");
         frame.setVisible(true);
     }

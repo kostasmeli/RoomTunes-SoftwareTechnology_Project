@@ -22,7 +22,7 @@ public class Launcher {
                     new Login();
                 }
                 if (scan.equals("VIP") || scan.equals("vip")) {
-                    new upgradeVIP();
+                    new UpgradeVIP();
                 }
                 if (scan.equals("DATA") || scan.equals("data")) {
                     new UserData();

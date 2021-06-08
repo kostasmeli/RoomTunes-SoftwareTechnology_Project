@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-public class upgradeVIP extends Launcher{
+public class UpgradeVIP extends Launcher{
 
     static Register register = new Register();
     static Payment payment = new Payment();
 
     /* έλεγχος για τα προσωπικά στοιχεία, όσο τα στοιχεία δεν επαληθεύονται η do-while θα τα ζητάει από το χρήστη να τα ξαναβάλει.*/
-    public upgradeVIP() {
+    public UpgradeVIP() {
         try (Scanner input = new Scanner(System.in)) {
             System.out.println("Fill in your details");
 
