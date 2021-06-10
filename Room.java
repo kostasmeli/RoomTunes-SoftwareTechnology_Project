@@ -30,11 +30,14 @@ public class Room{
 
         Scanner sc1 = new Scanner(System.in);
 
+        //zitame apo to xristi na dialeksei to dwmatio pou thelei
         System.out.println("Dialekste ena apo ta domatia mas");
         int num = sc1.nextInt();
-        //zitame apo to xristi na dialeksi to dwmatio pou thelei
 
+
+        //me mia while elegxoume tin epilogi pou ekane o xristis kai oso dinei domatia pou den einai diathesima, tou zitame na epileksei alla
         while(num!=1 || num!=3) {
+            //me tis if ton enimerwnoume gia tin epilogi tou kai gia to poso kostizei to domatio
             if (num == 1) {
                 System.out.println("Epileksate to Dwmatio 1");
                 System.out.println("To domatio pou epileksate kostizei 50€");
@@ -46,6 +49,7 @@ public class Room{
                 num = sc1.nextInt();
             } else if (num == 3) {
                 System.out.println("Epileksate to Dwmatio 3");
+                System.out.println("To domatio pou epileksate kostizei 80€");
                 payment.SetPayment(80.0);
                 return num;
             } else if (num == 4) {
@@ -60,5 +64,6 @@ public class Room{
         }
         System.out.println("Dialeksate to Dwmatio " + num);
         return num;
+        //epistrefetai to noumero domatiou pou epelekse o xristis alla kai stin payment oi times twn dwmatiwn
     }
 }
