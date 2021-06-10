@@ -2,7 +2,11 @@ import java.util.Scanner;
 
 public class Room{
 
+    //stin ousia auti i klasi kaleitai apo ti Reservation kai exei ta dwmatia
+
     static Payment payment = new Payment();
+    //epistrefei episis kai tin timi tou kathe dwmatiou
+
 
     public int RoomNum() {
         int[] numRoom;
@@ -17,9 +21,10 @@ public class Room{
         // initialize the second elements of the array
         numRoom[1] = 2;
 
-        //so on...
+        //kai ta ypoloipa
         numRoom[2] = 3;
         numRoom[3] = 4;
+
         for (i = 0; i < numRoom.length; i++)
             System.out.println("Domatio noumero " + " : " + numRoom[i]);
 
@@ -27,6 +32,8 @@ public class Room{
 
         System.out.println("Dialekste ena apo ta domatia mas");
         int num = sc1.nextInt();
+        //zitame apo to xristi na dialeksi to dwmatio pou thelei
+
         while(num!=1 || num!=3) {
             if (num == 1) {
                 System.out.println("Epileksate to Dwmatio 1");
