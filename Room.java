@@ -9,25 +9,28 @@ public class Room{
 
 
     public int RoomNum() {
+        //orizoume ton pinaka kai to i
         int[] numRoom;
         int i = 0;
 
-        // allocating memory for 5 integers.
+        // desmeuoume mnimi gia 5 akeraious
         numRoom = new int[4];
 
-        // initialize the first elements of the array
+        // Arxikopoioume to prwto stoixeio
         numRoom[0] = 1;
 
-        // initialize the second elements of the array
+        // epeita to deutero
         numRoom[1] = 2;
 
         //kai ta ypoloipa
         numRoom[2] = 3;
         numRoom[3] = 4;
 
-        for (i = 0; i < numRoom.length; i++)
+        System.out.println("To RoomTunes diathetei ta eksis dwmatia");
+        //me autin ti for ektipwnoume ola ta dwmatia gia na ta dei o xristis kai na mporei na dialeksei meta
+        for (i = 0; i < numRoom.length; i++) {
             System.out.println("Domatio noumero " + " : " + numRoom[i]);
-
+        }
         Scanner sc1 = new Scanner(System.in);
 
         //zitame apo to xristi na dialeksei to dwmatio pou thelei
@@ -44,6 +47,7 @@ public class Room{
                 payment.SetPayment(50.0);
                 return num;
             } else if (num == 2) {
+                //exoume thesei ws mi diathesimo auto to dwmatio
                 System.out.println("Lipoumste, to domatio 2 den einai diathesimo");
                 System.out.println("Dwste allo dwmatio");
                 num = sc1.nextInt();
@@ -53,10 +57,12 @@ public class Room{
                 payment.SetPayment(80.0);
                 return num;
             } else if (num == 4) {
+                //exoume thesei ws mi diathesimo auto to dwmatio
                 System.out.println("Lipoumste, to domatio 4 den einai diathesimo");
                 System.out.println("Dwste allo dwmatio");
                 num = sc1.nextInt();
             } else if (num != 1 && num != 2 && num != 3 && num != 4) {
+                //me autin tin periptwsi elegxoume oti de tha dwsei kapoio akiro arithmo o xristis
                 System.out.println("O arithmos pou dosate den einai egkiros");
                 System.out.println("Dialekste ena apo ta domatia mas");
                 num = sc1.nextInt();
