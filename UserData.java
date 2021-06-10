@@ -1,5 +1,8 @@
+//stin ousia auti i klasi emfanizei sto xristi ta stoixeia tou kai tou dinei ti dinatotita na allaksei opoia thelei
+
 import java.util.Scanner;
 public class UserData extends Launcher {
+//kaleitai kai auti apo ti launcher
 
     static Register register = new Register();
 
@@ -7,12 +10,15 @@ public class UserData extends Launcher {
         //edw na pairnei apo tin database
 
         try (Scanner sc = new Scanner(System.in)) {
+            //emfanizoume ta stoixeia tou xristi ta opoia pairnei apo ti register
             System.out.println("Ta stoixeia sas einai ta eksis:");
             System.out.println("Onoma:" + register.getName());
             System.out.println("Ta stoixeia sas einai ta eksis:");
             System.out.println("Username:" + register.getUserName());
             System.out.println("Ta stoixeia sas einai ta eksis:");
             System.out.println("Password:" + register.getPassword());
+
+            //epeita zitame poio pedio epithumei na allaksei
             System.out.println("Parakalo grapste poio pedio thelete na allaksete: onoma, email, password, alliws an thelete na vgeite grapste exit ");
             String pedio = sc.nextLine();
             while (!pedio.equals("exit") && !pedio.equals("EXIT")) {
