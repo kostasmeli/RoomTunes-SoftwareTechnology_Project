@@ -37,6 +37,7 @@ public class Room{
         while(num!=1 || num!=3) {
             if (num == 1) {
                 System.out.println("Epileksate to Dwmatio 1");
+                System.out.println("To domatio pou epileksate kostizei 50€");
                 payment.SetPayment(50.0);
                 return num;
             } else if (num == 2) {
