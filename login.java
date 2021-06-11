@@ -32,7 +32,7 @@ public class LoginAdmin extends JFrame {
                     prepst.setString(2,username);
                     ResultSet rs = prepst.executeQuery();
                     if (rs.next() == false) {
-                        /* αν δεν βρεθέι χρήστης με αυτό το username και το password*/
+                        /* αν δεν βρεθέι χρήστης με αυτό το username και το password εμφανίζεται το ανάλογο μήνυμα*/
                         JOptionPane.showMessageDialog(null,"No user with these login Details");
                     } else {
                         JOptionPane.showMessageDialog(null,"Welcome in "+username);
