@@ -106,13 +106,13 @@ public class Registration extends Launcher {
             }
             if (payment.GetPayMethod().equals("b") || payment.GetPayMethod().equals("B")) { //An epilexthike karta
                 System.out.println("Please insert your Card Info"); //Balte ta stoixeia tis kartas sas
-                System.out.println("Please insert your Card Number");
+                System.out.println("Please insert your Card Number"); //Eisagete ton arithmo tis kartas sas
                 String CardNumbers = scanner.nextLine();
-                System.out.println("Please insert your name as it appears on your card");
+                System.out.println("Please insert your name as it appears on your card"); //Eisagete to onoma opw fainetai stin karta sas
                 String CardName = scanner.nextLine();
-                System.out.println("Please insert your Card Expiration Date");
+                System.out.println("Please insert your Card Expiration Date"); //Eisagete tin imerominia liksis tis kartas sas
                 String CardDate = scanner.nextLine();
-                System.out.println("Please insert the 3 digit CVV number from the rear of your card");
+                System.out.println("Please insert the 3 digit CVV number from the rear of your card"); //Eisagete to tripsifio CVV poy vrisketai sto pisw meros tis kartas sas
                 String CVV = scanner.nextLine();
                 payment.SetCardInfo(CardNumbers, CardName, CardDate, CVV);
                 System.out.println("Registration Successful");
