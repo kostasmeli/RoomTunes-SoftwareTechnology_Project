@@ -17,7 +17,7 @@ public class Registration extends Launcher {
         this.Package = getPackage();
     }
 
-    public Boolean RegistrationForm() { //forma eggrafis xristi
+    public Boolean RegistrationForm() { //Forma eggrafis xristi
         Payment payment = new Payment();
         Scanner scanner = new Scanner(System.in);
 
@@ -25,7 +25,7 @@ public class Registration extends Launcher {
         String Name = scanner.nextLine();
         setName(Name);
 
-        System.out.print("Type your UserName => ");
+        System.out.print("Type your UserName => "); //Eisagwgi username
         String UserName = scanner.nextLine();
         setUserName(UserName);
 
