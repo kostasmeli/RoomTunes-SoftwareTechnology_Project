@@ -42,13 +42,13 @@ public class Registration extends Launcher {
         setVIPStatus(VIPStatus);
 
         if (VIPStatus == true) { //An epilegei true
-            System.out.println("Choose VIP Package"); //Epelekse VIP paketo
+            System.out.println("Choose VIP Package"); //Epilekste VIP paketo
             System.out.println("1. 3 months 30 euros");
             System.out.println("2. 6 months 50 euros");
             System.out.println("3. 12 months 80 euros");
-            System.out.println("Type exit to leave without upgrading to VIP"); //Grapse exit h EXIT gia na vgeis xwris na gineis VIP
+            System.out.println("Type exit to leave without upgrading to VIP"); //Grapste exit h EXIT gia na vgeite xwris na ginete VIP
             String Package = scanner.nextLine();
-            setPackage(Package);
+            setPackage(Package); // Grapste 1,2 h 3 gia poio paketo epithimeite
             while (scanner.hasNext()) {
                 Package = scanner.nextLine();
                 setPackage(Package);
