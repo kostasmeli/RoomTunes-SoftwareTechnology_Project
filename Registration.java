@@ -41,8 +41,8 @@ public class Registration extends Launcher {
         Boolean VIPStatus = scanner.nextBoolean();
         setVIPStatus(VIPStatus);
 
-        if (VIPStatus == true) {
-            System.out.println("Choose VIP Package");
+        if (VIPStatus == true) { //An epilegei true
+            System.out.println("Choose VIP Package"); //Epelekse VIP paketo
             System.out.println("1. 3 months 30 euros");
             System.out.println("2. 6 months 50 euros");
             System.out.println("3. 12 months 80 euros");
