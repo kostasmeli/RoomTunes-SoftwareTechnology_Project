@@ -17,7 +17,7 @@ public class Registration extends Launcher {
         this.Package = getPackage();
     }
 
-    public Boolean RegistrationForm() {
+    public Boolean RegistrationForm() { //forma eggrafis xristi
         Payment payment = new Payment();
         Scanner scanner = new Scanner(System.in);
 
@@ -161,4 +161,3 @@ public class Registration extends Launcher {
         return this.Package;
     }
 }
-
