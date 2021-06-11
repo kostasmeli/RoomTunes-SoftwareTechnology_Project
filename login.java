@@ -25,6 +25,7 @@ public class LoginAdmin extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
+                    /* χρησιμοποιούμε try-catch μπλοκ για τις περιπτώσεις που ο χρήστης δεν βρεθεί ή δώσει λάθος στοιχεία*/
                     String username=String.valueOf(UsernameField.getText());
                     String password=String.valueOf(passwordField.getPassword());
                     PreparedStatement prepst = conn.prepareStatement("SELECT Username,Password FROM roomtunes.users where Password=? and Username=? and isAdmin=1 ");
