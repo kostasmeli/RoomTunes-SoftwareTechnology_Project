@@ -37,7 +37,7 @@ public class Registration extends Launcher {
         String EMail = scanner.nextLine();
         setEMail(EMail);
 
-        System.out.print("If you want to become a VIP type true or false => ");
+        System.out.print("If you want to become a VIP type true or false => "); //Epilogi true h false gia na ginete VIP h oxi
         Boolean VIPStatus = scanner.nextBoolean();
         setVIPStatus(VIPStatus);
 
