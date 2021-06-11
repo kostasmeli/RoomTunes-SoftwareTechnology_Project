@@ -54,6 +54,7 @@ public class UpgradeVIP extends Launcher{
                 if (Package.equals("exit") || Package.equals("EXIT"))
                     break;
             }
+            /* ανάλογα με το πακέτο προσφαορών που έχει επιλέξει γίνεται η χρέωση και ο χρήστης επιλέγει αν θα πληρώσει με κάρτα ή μετρητά*/
             if (Package.equals("1")) {
                 payment.SetPayment(30.0);
                 System.out.println("The Total Amount is " + payment.GetPayment() + " euros");
