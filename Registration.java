@@ -62,11 +62,11 @@ public class Registration extends Launcher {
                     break;
             }
             if (Package.equals("1")) {
-                payment.SetPayment(30.0);
-                System.out.println("The Total Amount is " + payment.GetPayment() + " euros");
-                System.out.println("Choose Payment Method");
-                System.out.println("A or a for Cash");
-                System.out.println("B or b for Card");
+                payment.SetPayment(30.0); //To paketo 1 kostizei 30 euro
+                System.out.println("The Total Amount is " + payment.GetPayment() + " euros"); //Ypologizei to poso plirwmis
+                System.out.println("Choose Payment Method"); //Dialekste tropo plirwmis
+                System.out.println("A or a for Cash"); //Grapste A h a gia karta
+                System.out.println("B or b for Card"); //Grapste B h b gia metrita
             } else if (Package.equals("2")) {
                 payment.SetPayment(50.0);
                 System.out.println("The Total Amount is " + payment.GetPayment() + " euros");
