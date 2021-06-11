@@ -34,6 +34,7 @@ public class UpgradeVIP extends Launcher{
                     mypassword = input.nextLine();
                 }
             }
+            /* εμαφανίζει στο χρήστη τις προσφορές */
             System.out.println("Choose VIP Package");
             System.out.println("1. 3 months 30 euros");
             System.out.println("2. 6 months 50 euros");
