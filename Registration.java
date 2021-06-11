@@ -123,7 +123,7 @@ public class Registration extends Launcher {
         System.out.println("Registration Successful"); //Epituxhs eggrafi
         System.out.println("Your Name is: " + getName() + ", your UserName is: " + getUserName() + ", your Password is: " + getPassword() + ", your EMail is: " + getEMail() + " and your VIP Status is " + getVIPStatus()); //Ektipwsi twn stoixeiwn sas
         return false;
-    }
+    } //setters & getters
     public String getName() {
         return this.Name;
     }
