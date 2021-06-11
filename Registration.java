@@ -33,7 +33,7 @@ public class Registration extends Launcher {
         String Password = scanner.nextLine();
         setPassword(Password);
 
-        System.out.print("Type your E-Mail => ");
+        System.out.print("Type your E-Mail => "); //Eisagwgi Email
         String EMail = scanner.nextLine();
         setEMail(EMail);
 
