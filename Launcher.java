@@ -19,8 +19,8 @@ public class Launcher {
                 UserLogin login = new UserLogin();
                 login.UserLoginForm();
             } else if (scan.equals("VIP") || scan.equals("vip")) {
-                upgradeVIP upgradevip = new upgradeVIP();
-                upgradevip.upgradeVIPForm();
+                UpgradeVIP upgradevip = new UpgradeVIP();
+                upgradevip.UpgradeVIPForm();
             } else if (scan.equals("DATA") || scan.equals("data")) {
                 UserData userdata = new UserData();
                 userdata.UserDataForm();
