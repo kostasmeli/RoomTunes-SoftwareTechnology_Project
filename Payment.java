@@ -5,7 +5,7 @@ public class Payment {
     private String CardName;
     private String CardDate;
     private String CVV;
-
+/* κλάση της πληρωμής,το τελικό στάδιο από όπου περνάνε οι πληρωμές */
     public Payment() {
         Amount = 0.0;
     }
