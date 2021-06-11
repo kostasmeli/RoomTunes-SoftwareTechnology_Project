@@ -104,8 +104,8 @@ public class Registration extends Launcher {
                     System.out.println("Try again. Choose A or a for Cash and B or b for Card");
                 }
             }
-            if (payment.GetPayMethod().equals("b") || payment.GetPayMethod().equals("B")) {
-                System.out.println("Please insert your Card Info");
+            if (payment.GetPayMethod().equals("b") || payment.GetPayMethod().equals("B")) { //An epilexthike karta
+                System.out.println("Please insert your Card Info"); //Balte ta stoixeia tis kartas sas
                 System.out.println("Please insert your Card Number");
                 String CardNumbers = scanner.nextLine();
                 System.out.println("Please insert your name as it appears on your card");
