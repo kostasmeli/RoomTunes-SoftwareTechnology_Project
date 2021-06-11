@@ -35,6 +35,7 @@ public class LoginAdmin extends JFrame {
                         /* αν δεν βρεθέι χρήστης με αυτό το username και το password εμφανίζεται το ανάλογο μήνυμα*/
                         JOptionPane.showMessageDialog(null,"No user with these login Details");
                     } else {
+                        /* επιτυχής αναγνώριση του username και του password του χρήστη και τον καλωσορίζει. */
                         JOptionPane.showMessageDialog(null,"Welcome in "+username);
                         dispose();
                         JFrame frame=new StartPanel("Admin Panel of "+username );
