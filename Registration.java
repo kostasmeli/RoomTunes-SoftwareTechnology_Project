@@ -29,7 +29,7 @@ public class Registration extends Launcher {
         String UserName = scanner.nextLine();
         setUserName(UserName);
 
-        System.out.print("Type your Password => ");
+        System.out.print("Type your Password => "); //Eisagwgi kwdikou
         String Password = scanner.nextLine();
         setPassword(Password);
 
