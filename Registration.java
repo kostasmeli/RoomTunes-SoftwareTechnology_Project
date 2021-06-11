@@ -21,7 +21,7 @@ public class Registration extends Launcher {
         Payment payment = new Payment();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Type your Name => ");
+        System.out.print("Type your Name => "); //Eisagwgi onomatos
         String Name = scanner.nextLine();
         setName(Name);
 
