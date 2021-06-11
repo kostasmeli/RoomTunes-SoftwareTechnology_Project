@@ -49,6 +49,7 @@ public Reservation() {
             System.out.println("Try again. Choose A or a for Cash and B or b for Card");
         }
     }
+        //insert the cart's details for the payment
     if (room.payment.GetPayMethod().equals("b") || room.payment.GetPayMethod().equals("B")) {
         System.out.println("Please insert your Card Info");
         System.out.println("Please insert the Card Number");
