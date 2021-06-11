@@ -34,7 +34,8 @@ public class UpgradeVIP extends Launcher{
                     mypassword = input.nextLine();
                 }
             }
-            /* εμαφανίζει στο χρήστη τις προσφορές */
+            // εμαφανίζει στο χρήστη τις προσφορές
+            // του δίνει την δυνατότητα να επιλέξει ένα από τα 3 πακέτα προσφορών
             System.out.println("Choose VIP Package");
             System.out.println("1. 3 months 30 euros");
             System.out.println("2. 6 months 50 euros");
@@ -54,7 +55,7 @@ public class UpgradeVIP extends Launcher{
                 if (Package.equals("exit") || Package.equals("EXIT"))
                     break;
             }
-            /* ανάλογα με το πακέτο προσφαορών που έχει επιλέξει γίνεται η χρέωση και ο χρήστης επιλέγει αν θα πληρώσει με κάρτα ή μετρητά*/
+            /* ανάλογα με το πακέτο προσφορών που έχει επιλέξει γίνεται η χρέωση και ο χρήστης επιλέγει αν θα πληρώσει με κάρτα ή μετρητά*/
             if (Package.equals("1")) {
                 payment.SetPayment(30.0);
                 System.out.println("The Total Amount is " + payment.GetPayment() + " euros");
