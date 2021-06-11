@@ -80,7 +80,7 @@ public class Registration extends Launcher {
                 System.out.println("A or a for Cash");
                 System.out.println("B or b for Card");
             } else if (Package.equals("exit") || Package.equals("EXIT")) {
-                setVIPStatus(false);
+                setVIPStatus(false); //Bazei false to vipstatus dioti thelei na vgei xwris na ginei VIP
                 System.out.println("Upgrade to VIP failed.");
             } else {
                 System.out.println("Choose 1, 2 or 3. If you want to leave without upgrading to VIP type exit");
