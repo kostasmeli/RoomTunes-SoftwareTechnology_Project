@@ -37,10 +37,10 @@ public class AddCoupon extends JFrame {
         List<String> Users = new ArrayList<String>();
         Vector<String> UsersAppend = new Vector<String>();
         //local
-        //Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/roomtunes", "root", "");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/roomtunes", "root", "");
         //free-server
-        Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/roomtunes", "kwstas1998", "1q2w3e4r");
-        String UsersQuery = "Select FullName From Users;";
+        //Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/roomtunes", "kwstas1998", "1q2w3e4r");
+        String UsersQuery = "Select FullName From Users where isAdmin=0";
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery(UsersQuery);
         //we fetch Strings and add them to String List,but GUI list only takes String Array or Vector List
