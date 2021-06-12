@@ -19,7 +19,7 @@ public class Launcher {
                     Registration a = registration;
                 }
                 if(scan.equals("L") || scan.equals("l")) {
-                    new Login();
+                    //new Login();
                 }
                 if (scan.equals("VIP") || scan.equals("vip")) {
                     new UpgradeVIP();

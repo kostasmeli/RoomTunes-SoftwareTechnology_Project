@@ -27,9 +27,9 @@ public class AddRoom extends JFrame{
     public AddRoom(String title) throws SQLException {
         super(title);
         //local
-        //Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/roomtunes", "root", "");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/roomtunes", "root", "");
         //free-server
-        Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/roomtunes", "kwstas1998", "1q2w3e4r");
+        //Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/roomtunes", "kwstas1998", "1q2w3e4r");
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.setContentPane(RootPanel);
         this.setLocationRelativeTo(null);
